@@ -70,7 +70,7 @@ if (!empty($_POST)) {
           ?>
           <form action="?" method="post" style="width:50%;margin:20px auto;">
             <he class="ct">管理者登入</he>
-            <?= $err =(isset($error))?$error :""; ?>
+           
             <table>
               <tr>
                 <td>帳號</td>
@@ -79,6 +79,11 @@ if (!empty($_POST)) {
               <tr>
                 <td>密碼</td>
                 <td><input type="password" name="pw"></td>
+              </tr>
+              <tr>
+                <td>
+                <?= $err =(isset($error))?$error :""; ?>
+                </td>
               </tr>
             </table>
             <div class="ct"><input type="submit" value="登入"></div>
