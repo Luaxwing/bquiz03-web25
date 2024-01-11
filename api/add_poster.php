@@ -5,7 +5,7 @@ if(isset($_FILES['poster']['tmp_name'])){
     $_POST['img']=$_FILES['poster']['name'];
 }
 
-// 還沒有db
+
 $_POST['sh']=1;
 $_POST['rank']=$Poster->max('id')+1;
 $_POST['ani']=rand(1,3);
