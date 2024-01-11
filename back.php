@@ -1,5 +1,13 @@
 <?php
 include_once "./api/db.php";
+
+if (!empty($_POST)) {
+  if ($_POST['acc'] == 'admin' && $_POST['pw'] == '1234') {
+    $_SESSION['login'] = 1;
+  } else {
+    $error = "<div class='ct' style='color:red'>帳號或密碼錯誤</div>";
+  }
+}
 ?>
 <!DOCTYPE html
   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -62,6 +70,7 @@ include_once "./api/db.php";
           ?>
           <form action="?" method="post" style="width:50%;margin:20px auto;">
             <he class="ct">管理者登入</he>
+            <?= $err =(isset($error))?$error :""; ?>
             <table>
               <tr>
                 <td>帳號</td>
