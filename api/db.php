@@ -194,6 +194,8 @@ function pagetabs($now, $pages, $table)
 
 }
 
+$Poster=new DB('poster');
+
 
 
 // $Total = new DB('total');
