@@ -28,21 +28,22 @@ $pos=$Poster->all(" order by rank");
 foreach($pos as $idx => $po){
 ?>
 <div class="item">
-    <div>
+    <div id="po<?=$idx?>">
         <img src="./img/<?=$po['img'];?>" style="width:60px;height:80px">
     </div>
     <div>
         <input type="text" name="name[]" value="<?=$po['name'];?>">
     </div>
     <div>
-        <input type="button" value="往上">
-        <input type="button" value="往下">
+        <input class="btn" type="button" data-id="<?=$po['id']?>" value="往上" data-sw="<?=($idx!==0)?$pos[$idx-1]['id']:$po['id'];?>">
+        <input class="btn" type="button" data-id="<?=$po['id']?>" value="往下" data-sw="<?=($idx!==count($pos)-1)?$pos[$idx-1]['id']:$po['id'];?>">
+        <!-- 善用陣列特性，索引直 -->
     </div>
     <div>
         <input type="hidden" name="id[]" value="<?=$po['id'];?>">
         <!-- input:checkbox*2+select>option*3 -->
-        <input type="checkbox" name="sh[]" value="<?=$po['id'];?>" <?=($po['sh']==1)?'checked':'';?>>顯示
-        <input type="checkbox" name="del[]" value="<?=$po['id'];?>">刪除
+        <input type="checkbox" name="sh[]" value="<?=$po['id'];?>" <?=($po['sh']==1)?'checked':'';?>><span style="color:black;">顯示</span>
+        <input type="checkbox" name="del[]" value="<?=$po['id'];?>"><span style="color:black;">刪除</span>
         <select name="ani[]" id="">
             <option value="1" <?=($po['ani']==1)?'selected':'';?>>淡入淡出</option>
             <option value="2" <?=($po['ani']==2)?'selected':'';?>>縮收</option>
@@ -78,3 +79,16 @@ foreach($pos as $idx => $po){
 </div>
 </form>
 </div>
+
+<script>
+
+$(".btn").on("click",function(){
+let id=$(this).data('id');
+let sw=$(this).data('sw');
+let table='poster';
+$.post("./api/sw.php",{id,sw,table},()=>{
+    location.reload();
+})
+})
+
+</script>
