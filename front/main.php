@@ -113,8 +113,22 @@
 </div>
 <script>
     $(".item").eq(0).show();
+    let total=$(".btn").length;
+    
+    let now=0;
+let timer=setInterval("slide()",3000);
 
-let total=$(".btn").length;
+function slide(){
+    $(".item").hide();
+    now=now+1;
+    if(now>=total){
+        now=0
+    }
+    $(".item").eq(now).show();
+
+}
+
+
 
 
     let p = 0;
