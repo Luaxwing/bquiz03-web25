@@ -189,3 +189,30 @@ input:focus
 {
 	cursor:default;
 }
+
+.item *{
+	box-sizing: border-box;
+}
+
+.item div{
+	color:#000
+}
+
+.item{
+	background-color: #ffffff;
+	width: 100%;
+	display: flex;
+	padding: 3px;
+	margin: 3px 0;
+	box-sizing: border-box;
+}
+
+.item > div:nth-child(1){
+	width:15%;
+}
+.item > div:nth-child(2){
+	width:12%;
+}
+.item > div:nth-child(3){
+	width:73%;
+}
