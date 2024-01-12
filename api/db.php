@@ -160,15 +160,15 @@ function pageInit($total, $div)
     $pages = ceil($total / $div);
     $now = $_GET['p'] ?? 1;
     $start = ($now - 1) * $div;
-    $array = ['pages' => $pages, 'now' => $now, 'start' => $start];
+    $array = [$pages, $now, $start];
     return $array;
 }
 ;
 
 // 分頁標籤
-function pagetabs($now, $pages, $table)
+function pagetabs($now, $pages, $table="")
 {
-
+    $str=($table!="")?"do=$table&":"";
     $prev = $now - 1;
     if ($prev >= 1) {
 
@@ -177,7 +177,7 @@ function pagetabs($now, $pages, $table)
 
     for ($i = 1; $i <= $pages; $i++) {
         $fontsize = ($now == $i) ? '24px' : '16px';
-        echo " <a href=?do=$table&p=$i";
+        echo " <a href=?{$str}p=$i";
         echo " style=font-size:$fontsize;";
         // if($i==$now){
         //     echo " style=font-size:25px;";
@@ -189,7 +189,7 @@ function pagetabs($now, $pages, $table)
 
     $next = $now + 1;
     if ($next <= $pages) {
-        echo "<a href='?do=$table&p=$next'> &gt; </a>";
+        echo "<a href='?{$str}p=$next'> &gt; </a>";
     }
 
 }

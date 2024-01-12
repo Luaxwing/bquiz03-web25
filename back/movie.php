@@ -75,8 +75,8 @@
 </div>
 <script>
     $(".show-btn").on("click", function () {
-let id=$(this).data('id');
-$.post("./api/show.php", {id}, () => {
+        let id = $(this).data('id');
+        $.post("./api/show.php", { id }, () => {
             location.reload();
         })
     })
@@ -90,11 +90,12 @@ $.post("./api/show.php", {id}, () => {
         })
     })
     $(".edit-btn").on("click", function () {
-
+        let id = $(this).data('id');
+        location.href=`?do=edit_movie&id=${id}`;
     })
     $(".del-btn").on("click", function () {
-        let id=$(this).data('id');
-        $.post("./api/del.php", { id,table:'movie'}, () => {
+        let id = $(this).data('id');
+        $.post("./api/del.php", { id, table: 'movie' }, () => {
             location.reload();
         })
     })
