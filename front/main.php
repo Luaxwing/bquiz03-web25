@@ -51,6 +51,7 @@
     .btn img {
         width: 60px;
         height: 80px;
+        
     }
 
     .btn {

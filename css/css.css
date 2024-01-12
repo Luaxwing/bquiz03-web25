@@ -189,3 +189,13 @@ input:focus
 {
 	cursor:default;
 }
+
+.btn{
+    border: 0;
+   
+}
+.btn:hover{
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 5px;
+}
