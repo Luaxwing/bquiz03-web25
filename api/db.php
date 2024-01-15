@@ -209,6 +209,7 @@ function pagetabs($now, $pages, $table = "")
 
 $Poster = new DB('poster');
 $Movie = new DB('movie');
+$Order = new DB('orders');
 
 
 // $Total = new DB('total');
