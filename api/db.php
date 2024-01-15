@@ -155,6 +155,18 @@ function to($url)
     header("location:$url");
 }
 
+$sess = [
+    0 => '14:00~16:00',
+    1 => '16:00~18:00',
+    2 => '18:00~20:00',
+    3 => '20:00~22:00',
+    4 => '22:00~24:00'
+];
+
+
+
+
+
 function pageInit($total, $div)
 {
     $pages = ceil($total / $div);
@@ -166,9 +178,9 @@ function pageInit($total, $div)
 ;
 
 // 分頁標籤
-function pagetabs($now, $pages, $table="")
+function pagetabs($now, $pages, $table = "")
 {
-    $str=($table!="")?"do=$table&":"";
+    $str = ($table != "") ? "do=$table&" : "";
     $prev = $now - 1;
     if ($prev >= 1) {
 
@@ -194,8 +206,8 @@ function pagetabs($now, $pages, $table="")
 
 }
 
-$Poster=new DB('poster');
-$Movie=new DB('movie');
+$Poster = new DB('poster');
+$Movie = new DB('movie');
 
 
 // $Total = new DB('total');
