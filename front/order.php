@@ -18,16 +18,52 @@
         <button>重置</button>
     </div>
 </div>
-<script>
+<!-- <script>
 getMovies();
+
+$("#movie").on("change",function(){
+    // let id=$("#movie").val();
+    // getDate(id);
+    getDates($("#movie").val());
+})
 
 function getMovies(){
     $.get("./api/get_movies.php",(movies)=>{
 
         // callback
         $("#movie").html(movies);
-        let id=$("#movie").val();
-        getDates(id)
+        // let id=$("#movie").val();
+        // getDates(id)
+        getDates($("#movie").val())
+    })
+}
+function getDates(id){
+    $.get("./api/get_dates.php",{id},(dates)=>{
+            $("#date").html(dates);
+            let movie=$("#movie").val()
+            let date=$("#date").val()
+            getSessions(movie,date)
+    })
+}
+function getSessions(movie,date){
+    $.get("./api/get_sessions.php",{movie,date},(sessions)=>{
+            $("#session").html(sessions);
+    })
+}
+
+</script> -->
+
+<script>
+getMovies();
+
+$("#movie").on("change",function(){
+    getDates($("#movie").val())
+})
+
+function getMovies(){
+    $.get("./api/get_movies.php",(movies)=>{
+        $("#movie").html(movies);
+        getDates($("#movie").val())
     })
 }
 function getDates(id){
