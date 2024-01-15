@@ -11,7 +11,7 @@ for($i=$start;$i<=5;$i++){
      * 2.根據訂單，機算座位數
      * 3.在迴圈使用20-座位數來取得剩餘座位數
      */
-$qt=$Order->sum('qt',['movie'=>$movieName,'date'=>$date,'session'=>$sesstion]);
+$qt=$Order->sum('qt',['movie'=>$movieName,'date'=>$date,'session'=>$sess[$i]]);
 $lave=20-$qt;
 
 
@@ -32,4 +32,3 @@ $lave=20-$qt;
 //     echo "<option value='{$sess[$i]}'>{$sess[$i]} 剩餘座位 20</option>";
 // }
 
-?>
